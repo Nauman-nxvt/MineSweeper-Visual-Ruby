@@ -97,9 +97,7 @@ class MineSweeper
 							button.set_alignment(0.5, 0.5)
 						else
 							image = Gtk::Image.new ("bin/data/media/flag.jpg")
-		   					#button.add(image)
-							button.image= image	
-							#image.show
+							button.image= image
 							button.set_alignment(0, 0)
 						end	
 					end				
@@ -136,11 +134,10 @@ end
 		@builder["window1"].sensitive = false
 		n = 0
 		while (n < @mines.length - 1)	
-		
-		image = Gtk::Image.new ("bin/data/media/mine.jpg")
-		@buttons[ @mines[n] ][ @mines[n+1] ].image = image
-		image.show
-		n = n + 2
+			image = Gtk::Image.new ("bin/data/media/mine.jpg")
+			@buttons[ @mines[n] ][ @mines[n+1] ].image = image
+			image.show
+			n = n + 2
 		end
 	end
 
