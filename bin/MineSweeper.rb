@@ -18,7 +18,6 @@ class MineSweeper
 	end
 	
 	def before_show()
-
 		topLevelWindow = @builder["window1"] 									#getting topLevel Window
 		table = Gtk::Fixed.new													# Creating a Fixed Container To Place Buttons
 		# creating buttons and attaching them to Fixed Container
@@ -56,7 +55,6 @@ class MineSweeper
 			end
 			@board.push(boardRow)
 		end
-		
 		for i in 0..no_of_mines-1
 			x = rand(@rows)
 			y = rand(@cols)
@@ -64,9 +62,7 @@ class MineSweeper
 			@board[x][y] = -1
 			@mines << x
 			@mines << y 
-			
-		end	
-		#puts @board.inspect
+		end
 	end
 
 	def initialize_board
@@ -153,7 +149,6 @@ end
 	def uncover (i,j)		
 		x_array = [i]       #array containing x-indexes of clicked button which have 0 mines in the sorrounding
 		y_array = [j]				#y-index of clicked button  "    "    "    "    "    "    "    "     "     "    "
-	
 		x_array.each_with_index do |n,index|	
 			i = n
 			j = y_array[index]
@@ -176,8 +171,6 @@ end
 		end
 	end
 
-	
-
 	def button_clicked(widget, event)
      # which button was clicked?
      #if event.button == 1
@@ -194,106 +187,3 @@ end
 		destroy_window
 	end
 end
-
-
-=begin
-def uncover (btn,i,j)		#vol 1
-		check=1		
-		if @board[i][j]!=-1
-			for x in i-1..i+1
-				for y in j-1..j+1
-					if x>=0 && y >=0 && x < @rows && y < @cols
-						#if @board[x][y] > 0 || @board[x][y]== -1
-							#check = -1						
-								next if @board[x][y]== -1					
-							@buttons[x][y].label = @board[x][y].to_s					
-							@buttons[x][y].sensitive= false						
-						#end
-					end
-				end
-			end
-			if check == 2
-				for x in i-1..i+1
-					for y in j-1..j+1
-						if x>=0 && y >=0 && x < @rows && y < @cols
-							@buttons[x][y].label = @board[x][y].to_s
-						end
-					end
-				end							
-			end 
-		end
-	end
-
-def uncover (i,j)	  #vol 2
-		p i.to_s + j.to_s
-    p @buttons[i][j].label	
-		#uncover_array=1		
-			for x in i-1..i+1
-				for y in j-1..j+1
-					if x>=0 && y >=0 && x < @rows && y < @cols  
-						if (x != i && y != j)     
-							#if @buttons[x][y].label == "-"
-								#next
-							#else
-								@buttons[x][y].label = @board[x][y].to_s					
-								@buttons[x][y].sensitive = false
-							#end
-							if @buttons[x][y].label == "0"
-								@buttons[x][y].label = "-"						
-								uncover(x,y)
-							end						
-						end
-					end
-				end
-			end 
-	end
-
-
-def uncover (i,j)		 #vol 3
-		#uncover_array=1		
-			for x in i-1..i+1
-				for y in j-1..j+1
-					if x>=0 && y >=0 && x < @rows && y < @cols
-											
-							@buttons[x][y].label = @board[x][y].to_s					
-							@buttons[x][y].sensitive= false
-							reuncover(x,y) if @board[x][y] == 0						
-						
-					end
-				end
-			end 
-	end
-	
-	def reuncover (i,j)		
-		#uncover_array=1		
-		if @board[i][j]!=-1
-			for x in i-1..i+1
-				for y in j-1..j+1
-					if x>=0 && y >=0 && x < @rows && y < @cols
-											
-							@buttons[x][y].label = @board[x][y].to_s					
-							@buttons[x][y].sensitive= false
-							#uncover(x,y) if @board[x][y] == 0						
-						
-					end
-				end
-			end 
-		end
-	end
-	
-	
-eb = Gtk::EventBox.new
-w.add(eb)
-#eb.add_events(Gdk::Event::ALL_EVENTS_MASK)
-eb.add_events(Gdk::Event::KEY_PRESS_MASK)
-
-eb.signal_connect('key-press-event') do |widg, event|
-  puts 'pressed'
-end
-
-w.show_all
-
-
-
-
-=end
