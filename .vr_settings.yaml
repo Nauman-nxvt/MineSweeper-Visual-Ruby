@@ -1,0 +1,15 @@
+--- !ruby/object:VR_ENV
+current_file: "/home/nauman/visualruby/mineSweeper/bin/MineSweeper.rb"
+height: 876
+open_files:
+- "/home/nauman/visualruby/mineSweeper/bin/MineSweeper.rb"
+- "/home/nauman/visualruby/mineSweeper/bin/Menu.rb"
+open_folders:
+- "/home/nauman/visualruby/mineSweeper"
+- "/home/nauman/visualruby/mineSweeper/bin"
+- "/home/nauman/visualruby/mineSweeper/bin/glade"
+panel_pos: 498
+rdoc_command_line: rdoc -x README
+run_command_line: ruby main.rb
+width: 1600
+settings_file_version: 1
